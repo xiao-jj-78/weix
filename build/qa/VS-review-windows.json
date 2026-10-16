@@ -1,0 +1,26 @@
+[
+  {
+    "title": "不一致的行尾",
+    "hwnd": 2102406,
+    "rect": [
+      615,
+      379,
+      1092,
+      640
+    ],
+    "PrintWindow": 1,
+    "path": "C:\\Users\\upwar\\WorkBuddy\\2026-10-15-12-40-20\\build\\qa\\VS-review-0.png"
+  },
+  {
+    "title": "WeChatWorkspace - MainPage.xaml.cs - Microsoft Visual Studio",
+    "hwnd": 4855840,
+    "rect": [
+      -7,
+      -7,
+      1714,
+      1026
+    ],
+    "PrintWindow": 1,
+    "path": "C:\\Users\\upwar\\WorkBuddy\\2026-10-15-12-40-20\\build\\qa\\VS-review-1.png"
+  }
+]

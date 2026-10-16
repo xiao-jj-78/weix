@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:WeChatLikeMaui.Models"
+             xmlns:controls="clr-namespace:WeChatLikeMaui.Controls"
+             x:Class="WeChatLikeMaui.MainPage"
+             Title="微信自动化工作台" SizeChanged="OnPageSizeChanged">
+    <Grid RowDefinitions="Auto,Auto,*">
+        <Grid BackgroundColor="{StaticResource Ink}" Padding="24,20" ColumnDefinitions="*,Auto">
+            <VerticalStackLayout Spacing="5">
+                <Label Text="微信自动化 · 工作台" FontSize="24" FontAttributes="Bold" TextColor="White" SemanticProperties.HeadingLevel="Level1"/>
+                <Label Text="电脑管理微信；手机独立版可直接在手机使用。" FontSize="12" TextColor="#B5C8C3"/>
+            </VerticalStackLayout>
+            <Border Grid.Column="1" Padding="12,7" BackgroundColor="#24454B" StrokeThickness="0" VerticalOptions="Center">
+                <Border.StrokeShape><RoundRectangle CornerRadius="20"/></Border.StrokeShape>
+                <Label x:Name="ConnectionBadge" Text="未连接" FontSize="12" TextColor="#E0EBE7"/>
+            </Border>
+        </Grid>
+        <ScrollView Grid.Row="1" Orientation="Horizontal" HorizontalScrollBarVisibility="Never" BackgroundColor="White">
+        <HorizontalStackLayout Padding="16,12" Spacing="6">
+            <Button x:Name="DashboardTab" Text="工作台" FontSize="13" Padding="8,10" Clicked="OnTabClicked" CommandParameter="dashboard" AutomationId="DashboardTab"/>
+            <Button x:Name="SdkTab" Grid.Column="1" Text="C# SDK" FontSize="13" Padding="8,10" Style="{StaticResource SecondaryButton}" Clicked="OnTabClicked" CommandParameter="sdk" AutomationId="SdkTab"/>
+            <Button x:Name="AiTab" Grid.Column="2" Text="AI 答复" FontSize="13" Padding="8,10" Style="{StaticResource SecondaryButton}" Clicked="OnTabClicked" CommandParameter="ai" AutomationId="AiTab"/>
+            <Button x:Name="SettingsTab" Grid.Column="3" Text="参数设置" FontSize="13" Padding="8,10" Style="{StaticResource SecondaryButton}" Clicked="OnTabClicked" CommandParameter="settings" AutomationId="SettingsTab"/>
+            <Button x:Name="CompanionTab" Text="云端与多微信" FontSize="13" Padding="12,10" Style="{StaticResource SecondaryButton}" Clicked="OnTabClicked" CommandParameter="companion" AutomationId="CompanionTab"/>
+        </HorizontalStackLayout>
+        </ScrollView>
+        <Grid Grid.Row="2" x:Name="CompanionView" IsVisible="False" AutomationId="CompanionView"/>
+        <ScrollView Grid.Row="2" x:Name="MainScroll" AutomationId="MainScroll">
+            <VerticalStackLayout x:Name="MainContent" Padding="24,20,24,32" Spacing="20" MaximumWidthRequest="1440" HorizontalOptions="Fill">
+                <Border x:Name="QuickWechatPanel" Style="{StaticResource Panel}" IsVisible="False">
+                    <VerticalStackLayout Spacing="12">
+                        <Label Text="直接使用电脑微信" FontSize="21" FontAttributes="Bold"/>
+                        <Label x:Name="QuickWechatMessage" AutomationId="QuickWechatMessage" Text="点一次即可连接本机并打开官方微信。优先使用已有登录状态；本机使用不需要云访问码。" Style="{StaticResource Caption}"/>
+                        <Button x:Name="QuickWechatBtn" AutomationId="QuickWechatBtn" Text="打开 / 继续使用微信" Clicked="OnQuickWechatClicked"/>
+                        <Button x:Name="QuickConnectionBtn" AutomationId="QuickConnectionBtn" Text="高级连接设置" Clicked="OnQuickConnectionClicked" Style="{StaticResource SecondaryButton}"/>
+                    </VerticalStackLayout>
+                </Border>
+                <Border x:Name="ConnectionPanel" Style="{StaticResource Panel}">
+                    <VerticalStackLayout Spacing="12">
+                        <Grid ColumnDefinitions="*,Auto">
+                            <Label Text="连接电脑端" FontSize="17" FontAttributes="Bold" VerticalOptions="Center"/>
+                            <ActivityIndicator x:Name="ConnectionBusy" Grid.Column="1" IsRunning="False" IsVisible="False" WidthRequest="24" HeightRequest="24"/>
+                        </Grid>
+                        <Grid x:Name="ConnectionFields" ColumnDefinitions="*,110" ColumnSpacing="12">
+                            <VerticalStackLayout Spacing="4">
+                                <Label Text="电脑 IP / 主机名" Style="{StaticResource Caption}"/>
+                                <Entry x:Name="IpEntry" AutomationId="IpEntry" Placeholder="192.168.1.5" ReturnType="Next" SemanticProperties.Description="电脑 IP 地址或主机名"/>
+                            </VerticalStackLayout>
+                            <VerticalStackLayout Grid.Column="1" Spacing="4">
+                                <Label Text="服务端口" Style="{StaticResource Caption}"/>
+                                <Entry x:Name="PortEntry" AutomationId="PortEntry" Text="8765" Keyboard="Numeric" MaxLength="5" SemanticProperties.Description="服务端口"/>
+                            </VerticalStackLayout>
+                        </Grid>
+                        <FlexLayout Wrap="Wrap" Direction="Row" AlignItems="Center">
+                            <Button x:Name="ConnectBtn" AutomationId="ConnectBtn" Text="连接电脑" Clicked="OnConnectClicked" Margin="0,0,10,4"/>
+                            <Button x:Name="LocalBtn" AutomationId="LocalBtn" Text="启动本机服务" Style="{StaticResource SecondaryButton}" Clicked="OnLaunchLocalClicked" IsVisible="False" Margin="0,0,10,4"/>
+                            <Button x:Name="DisconnectBtn" AutomationId="DisconnectBtn" Text="断开" Style="{StaticResource SecondaryButton}" Clicked="OnDisconnectClicked" IsVisible="False" Margin="0,0,0,4"/>
+                        </FlexLayout>
+                        <Label x:Name="StatusLabel" Text="填写电脑端地址后连接。手机与电脑需在同一 Wi-Fi。" Style="{StaticResource Caption}" AutomationId="StatusLabel"/>
+                    </VerticalStackLayout>
+                </Border>
+                <Label x:Name="NoticeLabel" IsVisible="False" TextColor="#914138" FontSize="13" AutomationId="NoticeLabel"/>
+
+                <VerticalStackLayout x:Name="DashboardPanel" Spacing="20">
+                    <Grid ColumnDefinitions="*,*,*" ColumnSpacing="12">
+                        <Border Style="{StaticResource Panel}" Padding="16">
+                            <VerticalStackLayout Spacing="5"><Label Text="运行任务" Style="{StaticResource Caption}"/><Label x:Name="RunningCount" Text="—" FontSize="29" FontAttributes="Bold" TextColor="{StaticResource Primary}"/><Label x:Name="TaskCount" Text="等待连接" Style="{StaticResource Caption}"/></VerticalStackLayout>
+                        </Border>
+                        <Border Grid.Column="1" Style="{StaticResource Panel}" Padding="16">
+                            <VerticalStackLayout Spacing="5"><Label Text="ADB 设备" Style="{StaticResource Caption}"/><Label x:Name="DeviceCount" Text="—" FontSize="29" FontAttributes="Bold"/><Label x:Name="DeviceSummary" Text="尚未检测" Style="{StaticResource Caption}"/></VerticalStackLayout>
+                        </Border>
+                        <Border Grid.Column="2" Style="{StaticResource Panel}" Padding="16">
+                            <VerticalStackLayout Spacing="5"><Label Text="服务状态" Style="{StaticResource Caption}"/><Label x:Name="ServerState" Text="离线" FontSize="23" FontAttributes="Bold"/><Label x:Name="RefreshTime" Text="尚未同步" Style="{StaticResource Caption}"/></VerticalStackLayout>
+                        </Border>
+                    </Grid>
+                    <Grid x:Name="WorkspaceGrid" RowDefinitions="Auto,Auto" ColumnDefinitions="*" RowSpacing="20" ColumnSpacing="20">
+                        <VerticalStackLayout x:Name="TaskColumn" Spacing="12">
+                            <Grid ColumnDefinitions="*,Auto"><Label Text="任务控制" Style="{StaticResource Section}" SemanticProperties.HeadingLevel="Level2"/><Label x:Name="TaskHint" Grid.Column="1" Text="实时同步" Style="{StaticResource Caption}" VerticalOptions="Center"/></Grid>
+                            <Border x:Name="TaskEmpty" Style="{StaticResource Panel}">
+                                <VerticalStackLayout Spacing="8"><Label Text="连接后载入任务" FontSize="17" FontAttributes="Bold"/><Label Text="任务及运行状态来自电脑端，尚未连接时不会显示演示数据。" Style="{StaticResource Caption}"/></VerticalStackLayout>
+                            </Border>
+                            <VerticalStackLayout x:Name="TaskList" Spacing="10">
+                                <BindableLayout.ItemTemplate>
+                                    <DataTemplate x:DataType="models:TaskItem">
+                                        <Border Style="{StaticResource Panel}" Padding="16">
+                                            <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto,Auto,Auto" RowSpacing="7" ColumnSpacing="12">
+                                                <HorizontalStackLayout Spacing="8"><Label Text="●" TextColor="{Binding DotColor}" FontSize="12" VerticalOptions="Center"/><Label Text="{Binding Name}" FontSize="16" FontAttributes="Bold"/></HorizontalStackLayout>
+                                                <Label Grid.Row="1" Text="{Binding Desc}" Style="{StaticResource Caption}"/>
+                                                <Label Grid.Row="2" Text="{Binding StatusText}" Style="{StaticResource Caption}"/>
+                                                <Button Grid.Column="1" Grid.RowSpan="3" Text="{Binding ActionText}" IsEnabled="{Binding CanAct}" BackgroundColor="{Binding ActionColor}" CommandParameter="{Binding Id}" Clicked="OnTaskButtonClicked" VerticalOptions="Center" MinimumWidthRequest="78" SemanticProperties.Hint="控制此电脑端任务"/>
+                                            </Grid>
+                                        </Border>
+                                    </DataTemplate>
+                                </BindableLayout.ItemTemplate>
+                            </VerticalStackLayout>
+                        </VerticalStackLayout>
+                        <VerticalStackLayout x:Name="EvidenceColumn" Grid.Row="1" Spacing="20">
+                            <Border Style="{StaticResource Panel}">
+                                <VerticalStackLayout Spacing="12">
+                                    <Grid ColumnDefinitions="*,Auto"><Label Text="运行日志" Style="{StaticResource Section}" SemanticProperties.HeadingLevel="Level2"/><Button x:Name="LogTaskBtn" Grid.Column="1" Text="选择任务" Style="{StaticResource SecondaryButton}" Clicked="OnSelectLogTaskClicked" IsEnabled="False" FontSize="12"/></Grid>
+                                    <Label x:Name="LogTaskLabel" Text="尚未选择任务" Style="{StaticResource Caption}"/>
+                                    <Border BackgroundColor="{StaticResource Ink}" StrokeThickness="0" Padding="15">
+                                        <Border.StrokeShape><RoundRectangle CornerRadius="10"/></Border.StrokeShape>
+                                        <ScrollView HeightRequest="280"><Label x:Name="LogLabel" Text="连接后查看最近 60 行日志。" FontSize="12" TextColor="#D4E9DF" LineBreakMode="WordWrap" FontFamily="{OnPlatform WinUI=Consolas, Android=monospace}"/></ScrollView>
+                                    </Border>
+                                </VerticalStackLayout>
+                            </Border>
+                            <Border Style="{StaticResource Panel}">
+                                <VerticalStackLayout Spacing="12">
+                                    <Grid ColumnDefinitions="*,Auto"><Label Text="设备与连接" FontSize="17" FontAttributes="Bold"/><Button x:Name="DevicesBtn" Grid.Column="1" Text="检测" Style="{StaticResource SecondaryButton}" Clicked="OnDevicesClicked" IsEnabled="False" FontSize="12"/></Grid>
+                                    <Label x:Name="DeviceLabel" Text="连接电脑后，可检测 USB / 模拟器 ADB 设备。" Style="{StaticResource Caption}"/>
+                                    <BoxView HeightRequest="1" Color="{StaticResource Line}"/>
+                                    <Label x:Name="EndpointLabel" Text="电脑端地址尚未配置" Style="{StaticResource Caption}"/>
+                                    <Label x:Name="LanLabel" Text="同一 Wi-Fi 下，手机与 Windows 共用一个服务。" Style="{StaticResource Caption}"/>
+                                </VerticalStackLayout>
+                            </Border>
+                        </VerticalStackLayout>
+                    </Grid>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout x:Name="SdkPanel" Spacing="18" IsVisible="False">
+                    <Label Text="C# SDK 与微信会话" Style="{StaticResource Section}" SemanticProperties.HeadingLevel="Level2"/>
+                    <Border Style="{StaticResource Panel}">
+                        <VerticalStackLayout Spacing="14">
+                            <Grid ColumnDefinitions="*,Auto"><Label Text="Windows 托管服务" FontSize="18" FontAttributes="Bold"/><Label x:Name="SdkBadge" Grid.Column="1" Text="未检测" TextColor="{StaticResource Muted}"/></Grid>
+                            <Label x:Name="SdkStateLabel" Text="连接电脑后读取 C# SDK、微信版本和会话状态。" Style="{StaticResource Caption}"/>
+                            <FlexLayout Wrap="Wrap">
+                                <Button x:Name="SdkStartBtn" Text="启动 SDK 服务" Clicked="OnSdkActionClicked" CommandParameter="start" IsEnabled="False" Margin="0,0,8,8" AutomationId="SdkStartBtn"/>
+                                <Button x:Name="SdkLoginBtn" Text="打开 / 继续使用微信" Clicked="OnQuickWechatClicked" Style="{StaticResource SecondaryButton}" Margin="0,0,8,8" AutomationId="SdkLoginBtn"/>
+                                <Button x:Name="SdkRefreshBtn" Text="刷新状态" Clicked="OnSdkRefreshClicked" IsEnabled="False" Style="{StaticResource SecondaryButton}" Margin="0,0,8,8"/>
+                                <Button x:Name="SdkStopBtn" Text="停止 SDK 服务" Clicked="OnSdkActionClicked" CommandParameter="stop" IsEnabled="False" Style="{StaticResource SecondaryButton}" Margin="0,0,0,8"/>
+                            </FlexLayout>
+                            <Label Text="首次登录请在电脑微信官方窗口中手动扫码。会话检测依据桌面窗口；登录结果以微信为准。" Style="{StaticResource Caption}"/>
+                            <BoxView HeightRequest="1" Color="{StaticResource Line}"/>
+                            <Label Text="微信与 SDK 版本" FontAttributes="Bold"/>
+                            <Label x:Name="SdkVersionLabel" Text="等待检测" Style="{StaticResource Caption}"/>
+                            <Label Text="当前会话" FontAttributes="Bold"/>
+                            <Label x:Name="SdkSessionLabel" Text="尚未读取" Style="{StaticResource Caption}"/>
+                            <Label Text="能力与兼容性" FontAttributes="Bold"/>
+                            <Label x:Name="SdkCapabilityLabel" Text="连接后显示真实 SDK 探测结果。" Style="{StaticResource Caption}"/>
+                        </VerticalStackLayout>
+                    </Border>
+                    <Label Text="只读诊断插件" Style="{StaticResource Section}" SemanticProperties.HeadingLevel="Level2"/>
+                    <VerticalStackLayout x:Name="PluginList" Spacing="10"/>
+                    <Border Style="{StaticResource Panel}"><VerticalStackLayout Spacing="10"><Label Text="诊断结果" FontAttributes="Bold"/><Label x:Name="PluginResultLabel" Text="运行只读插件后在此显示结果。" FontSize="12"/></VerticalStackLayout></Border>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout x:Name="AiPanel" Spacing="18" IsVisible="False">
+                    <Grid ColumnDefinitions="*,Auto" ColumnSpacing="12">
+                        <VerticalStackLayout Spacing="5"><Label Text="AI 智能答复" Style="{StaticResource Section}" SemanticProperties.HeadingLevel="Level2"/><Label Text="保存服务配置，预览答复，再手动启用。" Style="{StaticResource Caption}"/></VerticalStackLayout>
+                        <Label x:Name="AiBadge" Grid.Column="1" Text="待连接" TextColor="{StaticResource Muted}" VerticalOptions="Center"/>
+                    </Grid>
+                    <Label x:Name="AiStatusLabel" Text="先连接电脑并启动 C# SDK 服务。" Style="{StaticResource Caption}" AutomationId="AiStatusLabel"/>
+                    <Grid x:Name="AiWorkspaceGrid" ColumnDefinitions="*" RowDefinitions="Auto,Auto" RowSpacing="18" ColumnSpacing="18">
+                        <Border x:Name="AiProviderColumn" Style="{StaticResource Panel}" VerticalOptions="Start">
+                            <VerticalStackLayout Spacing="12">
+                                <Label Text="服务配置" FontSize="18" FontAttributes="Bold"/>
+                                <Label Text="参考 CC Switch 的命名配置与切换方式，兼容通用接口。" Style="{StaticResource Caption}"/>
+                                <Picker x:Name="AiProfilePicker" Title="选择服务配置" SelectedIndexChanged="OnAiProfileSelected" AutomationId="AiProfilePicker"/>
+                                <FlexLayout Wrap="Wrap"><Button x:Name="AiNewProfileBtn" Text="新建配置" Clicked="OnAiNewProfileClicked" Style="{StaticResource SecondaryButton}" Margin="0,0,8,4"/><Button x:Name="AiImportProfileBtn" Text="导入 JSON" Clicked="OnAiImportClicked" Style="{StaticResource SecondaryButton}" Margin="0,0,0,4" AutomationId="AiImportProfileBtn"/></FlexLayout>
+                                <Label Text="配置名称" Style="{StaticResource Caption}"/><Entry x:Name="AiProfileNameEntry" Placeholder="我的 AI 服务" AutomationId="AiProfileNameEntry"/>
+                                <Label Text="接口协议" Style="{StaticResource Caption}"/><Picker x:Name="AiProtocolPicker" AutomationId="AiProtocolPicker"><Picker.Items><x:String>通用兼容接口</x:String><x:String>Ollama</x:String></Picker.Items></Picker>
+                                <Label Text="服务地址" Style="{StaticResource Caption}"/><Entry x:Name="AiBaseUrlEntry" Placeholder="https://你的服务地址/v1" Keyboard="Url" AutomationId="AiBaseUrlEntry"/>
+                                <Label Text="模型名称" Style="{StaticResource Caption}"/><Entry x:Name="AiModelEntry" Placeholder="填写服务商提供的模型名称" AutomationId="AiModelEntry"/>
+                                <Label Text="API 密钥" Style="{StaticResource Caption}"/><Entry x:Name="AiKeyEntry" IsPassword="True" Placeholder="稍后填写；留空保留已保存密钥" AutomationId="AiKeyEntry"/>
+                                <Label x:Name="AiKeyStatusLabel" Text="密钥仅提交给电脑端，不会回显。" Style="{StaticResource Caption}"/>
+                                <Label x:Name="AiConfigStatusLabel" Text="启动 SDK 服务后读取配置。" Style="{StaticResource Caption}" AutomationId="AiConfigStatusLabel"/>
+                            </VerticalStackLayout>
+                        </Border>
+                        <VerticalStackLayout x:Name="AiReplyColumn" Grid.Row="1" Spacing="18">
+                            <Border Style="{StaticResource Panel}">
+                                <VerticalStackLayout Spacing="12">
+                                    <Label Text="回复规则与用户" FontSize="18" FontAttributes="Bold"/>
+                                    <Grid ColumnDefinitions="*,Auto"><Label Text="角色提示词" Style="{StaticResource Caption}" VerticalOptions="Center"/><Button x:Name="AiImportPromptBtn" Grid.Column="1" Text="导入文本" Clicked="OnAiPromptImportClicked" Style="{StaticResource SecondaryButton}" FontSize="12"/></Grid>
+                                    <Editor x:Name="AiPromptEditor" HeightRequest="125" AutoSize="Disabled" Placeholder="例如：用简洁、礼貌的中文回复；不确定时请说明。" BackgroundColor="{StaticResource Canvas}" TextColor="{StaticResource Ink}" AutomationId="AiPromptEditor"/>
+                                    <Label Text="仅向已勾选的用户自动答复" FontAttributes="Bold"/>
+                                    <controls:ContactSelector x:Name="AiContactsSelector"/>
+                                    <Button x:Name="AiContactsBtn" Text="从微信读取通讯录" Clicked="OnContactsClicked" Style="{StaticResource SecondaryButton}" HorizontalOptions="Start" AutomationId="AiContactsBtn"/>
+                                    <Label Text="微信账号（可留空使用当前账号）" Style="{StaticResource Caption}"/><Entry x:Name="AiAccountEntry" Placeholder="多账号时填写账号标识" AutomationId="AiAccountEntry"/>
+                                    <Grid ColumnDefinitions="*,*" ColumnSpacing="12" RowDefinitions="Auto,Auto" RowSpacing="10">
+                                        <VerticalStackLayout Spacing="4"><Label Text="答复间隔（秒）" Style="{StaticResource Caption}"/><Entry x:Name="AiIntervalEntry" Keyboard="Numeric" Text="15"/></VerticalStackLayout>
+                                        <VerticalStackLayout Grid.Column="1" Spacing="4"><Label Text="每小时上限" Style="{StaticResource Caption}"/><Entry x:Name="AiHourlyEntry" Keyboard="Numeric" Text="20"/></VerticalStackLayout>
+                                        <VerticalStackLayout Grid.Row="1" Spacing="4"><Label Text="托管时长（分钟）" Style="{StaticResource Caption}"/><Entry x:Name="AiSessionEntry" Keyboard="Numeric" Text="60"/></VerticalStackLayout>
+                                        <HorizontalStackLayout Grid.Row="1" Grid.Column="1" Spacing="4" VerticalOptions="End"><CheckBox x:Name="AiGroupsCheck" Color="{StaticResource Primary}" IsEnabled="False" WidthRequest="44" HeightRequest="44" MinimumWidthRequest="0" MinimumHeightRequest="0"/><Label Text="群聊暂不支持" VerticalOptions="Center" FontSize="12"/></HorizontalStackLayout>
+                                    </Grid>
+                                    <FlexLayout Wrap="Wrap"><Button x:Name="AiSaveBtn" Text="保存并切换配置" Clicked="OnAiSaveClicked" Margin="0,0,8,4" AutomationId="AiSaveBtn"/><Button x:Name="AiReloadBtn" Text="重新读取" Clicked="OnAiReloadClicked" Style="{StaticResource SecondaryButton}" Margin="0,0,0,4"/></FlexLayout>
+                                </VerticalStackLayout>
+                            </Border>
+                            <Border Style="{StaticResource Panel}">
+                                <VerticalStackLayout Spacing="12">
+                                    <Label Text="先预览，再启用" FontSize="18" FontAttributes="Bold"/>
+                                    <Editor x:Name="AiSampleEditor" HeightRequest="86" Placeholder="输入一条示例消息" BackgroundColor="{StaticResource Canvas}" TextColor="{StaticResource Ink}" AutomationId="AiSampleEditor"/>
+                                    <Button x:Name="AiPreviewBtn" Text="生成预览（不发送）" Clicked="OnAiPreviewClicked" Style="{StaticResource SecondaryButton}" HorizontalOptions="Start" AutomationId="AiPreviewBtn"/>
+                                    <Label x:Name="AiPreviewLabel" Text="预览使用电脑上已保存的配置，生成结果不会发给微信联系人。" FontSize="13" AutomationId="AiPreviewLabel"/>
+                                    <BoxView HeightRequest="1" Color="{StaticResource Line}"/>
+                                    <FlexLayout Wrap="Wrap"><Button x:Name="AiStartBtn" Text="启用自动答复" Clicked="OnAiRunClicked" CommandParameter="start" Margin="0,0,8,4" AutomationId="AiStartBtn"/><Button x:Name="AiStopBtn" Text="停止自动答复" Clicked="OnAiRunClicked" CommandParameter="stop" Style="{StaticResource SecondaryButton}" Margin="0,0,0,4" AutomationId="AiStopBtn"/></FlexLayout>
+                                    <Label Text="启用后会按已保存名单回复新消息；电脑保持解锁，微信保持在线。" Style="{StaticResource Caption}"/>
+                                </VerticalStackLayout>
+                            </Border>
+                        </VerticalStackLayout>
+                    </Grid>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout x:Name="SettingsPanel" Spacing="18" IsVisible="False">
+                    <Label Text="任务参数" Style="{StaticResource Section}" SemanticProperties.HeadingLevel="Level2"/>
+                    <Border Style="{StaticResource Panel}">
+                        <VerticalStackLayout Spacing="16">
+                            <Label Text="从电脑读取，保存后用于下次启动的任务。" Style="{StaticResource Caption}"/>
+                            <Grid ColumnDefinitions="*,*" ColumnSpacing="16" RowDefinitions="Auto,Auto,Auto,Auto" RowSpacing="16">
+                                <VerticalStackLayout Spacing="4"><Label Text="每轮数量 · 1–10000" Style="{StaticResource Caption}"/><Entry x:Name="LikeCountEntry" Keyboard="Numeric" AutomationId="LikeCountEntry"/></VerticalStackLayout>
+                                <VerticalStackLayout Grid.Column="1" Spacing="4"><Label Text="休息分钟 · 0–10080" Style="{StaticResource Caption}"/><Entry x:Name="RestEntry" Keyboard="Numeric"/></VerticalStackLayout>
+                                <VerticalStackLayout Grid.Row="1" Spacing="4"><Label Text="开始时刻 · 0–23" Style="{StaticResource Caption}"/><Entry x:Name="StartHourEntry" Keyboard="Numeric"/></VerticalStackLayout>
+                                <VerticalStackLayout Grid.Row="1" Grid.Column="1" Spacing="4"><Label Text="结束时刻 · 0–23" Style="{StaticResource Caption}"/><Entry x:Name="EndHourEntry" Keyboard="Numeric"/></VerticalStackLayout>
+                                <VerticalStackLayout Grid.Row="2" Spacing="4"><Label Text="多开数量 · 1–20" Style="{StaticResource Caption}"/><Entry x:Name="WechatCountEntry" Keyboard="Numeric"/></VerticalStackLayout>
+                                <VerticalStackLayout Grid.Row="2" Grid.Column="1" Spacing="4"><Label Text="ADB 端口 · 1–65535" Style="{StaticResource Caption}"/><Entry x:Name="AdbPortEntry" Keyboard="Numeric"/></VerticalStackLayout>
+                            </Grid>
+                            <BoxView HeightRequest="1" Color="{StaticResource Line}"/>
+                            <Label Text="朋友圈定点点赞 · 选择用户" FontSize="17" FontAttributes="Bold"/>
+                            <Label Text="勾选多个微信显示名，保存后仅用于“定点点赞”任务。其他点赞任务保持原有规则。" Style="{StaticResource Caption}"/>
+                            <controls:ContactSelector x:Name="MomentsContactsSelector"/>
+                            <Button x:Name="MomentsContactsBtn" Text="从微信读取通讯录" Clicked="OnContactsClicked" Style="{StaticResource SecondaryButton}" HorizontalOptions="Start" AutomationId="MomentsContactsBtn"/>
+                            <Label x:Name="ContactsStatusLabel" Text="可先手动添加用户名；读取通讯录需要启动 SDK 并登录微信。" Style="{StaticResource Caption}"/>
+                            <Label Text="结束时刻为 0 表示运行至当天 24 点。保存参数不会自动启动任何任务。" Style="{StaticResource Caption}"/>
+                            <FlexLayout Wrap="Wrap"><Button x:Name="SaveConfigBtn" AutomationId="SaveConfigBtn" Text="保存到电脑" Clicked="OnSaveConfigClicked" IsEnabled="False" Margin="0,0,10,4"/><Button x:Name="ReloadConfigBtn" Text="重新读取" Clicked="OnReloadConfigClicked" Style="{StaticResource SecondaryButton}" IsEnabled="False" Margin="0,0,0,4"/></FlexLayout>
+                            <Label x:Name="ConfigStatusLabel" Text="请先连接电脑端。" Style="{StaticResource Caption}" AutomationId="ConfigStatusLabel"/>
+                        </VerticalStackLayout>
+                    </Border>
+                </VerticalStackLayout>
+                <Label Text="学习研究用途 · 请仅在本人设备与账号上操作。" FontSize="11" TextColor="{StaticResource Muted}"/>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>
+

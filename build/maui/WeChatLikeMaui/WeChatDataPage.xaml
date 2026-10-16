@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WeChatLikeMaui.WeChatDataPage"
+             Title="微信数据"
+             BackgroundColor="#F4F8F6">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="14">
+            <Label Text="本人微信数据（只读 · 仅本机）" FontSize="20" FontAttributes="Bold" TextColor="#132C36"/>
+            <Label x:Name="ConnLabel" Text="未连接。请先在‘工作台’连接电脑端（默认 127.0.0.1:18766）。" TextColor="#5E756F" FontSize="13"/>
+            <Label Text="① 一键登录：仅打开官方微信，由你本人扫码/确认，不自动填凭据。" TextColor="#5E756F" FontSize="12"/>
+            <Button x:Name="LoginBtn" Text="一键登录微信" BackgroundColor="#11856B" TextColor="White" Clicked="OnLoginClicked"/>
+            <Button x:Name="ContactsBtn" Text="读取通讯录（用户表）" BackgroundColor="#11856B" TextColor="White" Clicked="OnContactsClicked"/>
+            <Label Text="通讯录姓名" FontAttributes="Bold" TextColor="#132C36"/>
+            <CollectionView x:Name="ContactsView" HeightRequest="200" BackgroundColor="White">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Label Text="{Binding .}" Padding="10" TextColor="#132C36"/>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <HorizontalStackLayout Spacing="8">
+                <Entry x:Name="WhoEntry" Placeholder="会话标识 who（如 filehelper / 好友备注）" HorizontalOptions="FillAndExpand"/>
+                <Button x:Name="ChatBtn" Text="读取聊天记录" BackgroundColor="#11856B" TextColor="White" Clicked="OnChatClicked"/>
+            </HorizontalStackLayout>
+            <Label Text="聊天记录（本人会话）" FontAttributes="Bold" TextColor="#132C36"/>
+            <CollectionView x:Name="ChatView" HeightRequest="260" BackgroundColor="White">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <VerticalStackLayout Padding="10">
+                            <Label Text="{Binding Who}" FontAttributes="Bold" TextColor="#11856B" FontSize="12"/>
+                            <Label Text="{Binding Message}" TextColor="#132C36"/>
+                            <Label Text="{Binding Time}" TextColor="#5E756F" FontSize="11"/>
+                        </VerticalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <Button x:Name="ExportBtn" Text="导出通讯录与聊天为本地 CSV" BackgroundColor="#5E756F" TextColor="White" Clicked="OnExportClicked"/>
+            <Label x:Name="StatusLabel" Text="" TextColor="#14725D" FontSize="13"/>
+            <Label x:Name="ErrorLabel" Text="" TextColor="#914138" FontSize="13" IsVisible="False"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

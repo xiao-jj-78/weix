@@ -1,0 +1,10 @@
+{
+  "name": "wechat-workspace-cloud-bridge",
+  "version": "1.1.0",
+  "private": true,
+  "description": "Authenticated persistent CloudBase bridge for an outbound Windows worker",
+  "main": "index.js",
+  "engines": { "node": ">=18" },
+  "scripts": { "start": "node index.js", "test": "node --test test/*.test.js" },
+  "dependencies": { "tencentcloud-sdk-nodejs-tcb": "4.1.321" }
+}

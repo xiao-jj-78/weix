@@ -1,0 +1,289 @@
+{
+  "service_status": {
+    "ok": true,
+    "app": "微信自动化控制台",
+    "version": "1.1.0",
+    "uptime": 0,
+    "remote": {
+      "running": true,
+      "port": 63546,
+      "lan_ips": [
+        "10.190.7.91"
+      ],
+      "pid": 66220,
+      "parent_pid": 39176,
+      "shutdown_available": true
+    },
+    "tasks": [
+      {
+        "id": "phone_like",
+        "name": "手机朋友圈点赞",
+        "desc": "ADB 驱动安卓手机/模拟器微信，自动浏览朋友圈并点赞（最多 15 条/轮）",
+        "running": false,
+        "pid": null,
+        "started_at": null,
+        "elapsed": 0,
+        "exit_code": null,
+        "last_line": ""
+      },
+      {
+        "id": "switch_account",
+        "name": "切换微信账号",
+        "desc": "识别当前微信号并切换到下一个未访问账号（需 OCR，已内置）",
+        "running": false,
+        "pid": null,
+        "started_at": null,
+        "elapsed": 0,
+        "exit_code": null,
+        "last_line": ""
+      },
+      {
+        "id": "pc_like",
+        "name": "电脑朋友圈点赞",
+        "desc": "驱动电脑版微信自动点赞，后台点击不占用鼠标，每轮 30 个后休息",
+        "running": false,
+        "pid": null,
+        "started_at": null,
+        "elapsed": 0,
+        "exit_code": null,
+        "last_line": ""
+      },
+      {
+        "id": "multi_like",
+        "name": "电脑多开点赞",
+        "desc": "自动排列多个微信窗口并同时点赞，异常自动重启",
+        "running": false,
+        "pid": null,
+        "started_at": null,
+        "elapsed": 0,
+        "exit_code": null,
+        "last_line": ""
+      },
+      {
+        "id": "replica_like",
+        "name": "定点点赞（库引擎）",
+        "desc": "按作者昵称/关键词定位朋友圈并点赞，支持持续监听模式",
+        "running": false,
+        "pid": null,
+        "started_at": null,
+        "elapsed": 0,
+        "exit_code": null,
+        "last_line": ""
+      }
+    ],
+    "config": {
+      "round_like_count": 30,
+      "round_rest_minutes": 30,
+      "run_start_hour": 8,
+      "run_end_hour": 0,
+      "wechat_count": 2,
+      "adb_dir": "",
+      "adb_port": "5038",
+      "tesseract_path": "",
+      "main_window": [
+        1960,
+        -760,
+        1080,
+        780
+      ],
+      "moments_window": [
+        2260,
+        -80,
+        576,
+        558
+      ],
+      "replica_author": "",
+      "replica_keyword": "",
+      "replica_watch": false,
+      "replica_interval": 30,
+      "remote_port": 8765,
+      "remote_autostart": false
+    }
+  },
+  "sdk_before": {
+    "ok": true,
+    "running": false,
+    "installed": true,
+    "managed": false,
+    "message": "C# SDK 服务未就绪: <urlopen error timed out>",
+    "session": {
+      "state": "offline",
+      "message": "C# SDK 服务未就绪: <urlopen error timed out>",
+      "processes": [],
+      "accounts": []
+    },
+    "plugins": []
+  },
+  "sdk_start": {
+    "ok": true,
+    "running": true,
+    "message": "C# SDK 服务已启动"
+  },
+  "sdk_status": {
+    "ok": true,
+    "running": true,
+    "app": "WeChatSdkHost",
+    "version": "2.0.0",
+    "mode": "interactive-desktop",
+    "uptime": 0.2871278,
+    "session": {
+      "state": "client-not-running",
+      "message": "未检测到官方微信客户端。点击打开微信并扫码登录。",
+      "processes": [],
+      "accounts": [],
+      "checkedAt": "2026-10-15T07:33:27.8067522+00:00",
+      "lastSdkReadAt": null,
+      "requiresInteractiveDesktop": true,
+      "authenticationVerifiedContinuously": false
+    },
+    "sdk": {
+      "loaded": true,
+      "name": "WeChatAuto4x.SDK",
+      "packageVersion": "2.1.4",
+      "assembly": "WeChatAuto",
+      "supportedClient": "4.x (按原 SDK 的窗口兼容性)",
+      "target": ".NET 10 / Windows x64",
+      "originalSource": "scottfly189/WeChatAuto.SDK",
+      "adapter": "public-sdk-ui-automation",
+      "capabilities": [
+        "official-login-launch",
+        "process-status",
+        "sdk-account-session",
+        "sdk-visible-conversations",
+        "sdk-contact-names",
+        "local-readonly-plugins"
+      ],
+      "forceOpenUiTree": false,
+      "registryInitialization": false,
+      "ocrEnabled": false,
+      "injection": false,
+      "notes": "读取账号/通讯录会调用 SDK 的公开 UIA 接口，可能切换、聚焦或调整微信窗口。UI Tree 未开放时会返回失败。"
+    },
+    "plugins": [
+      {
+        "id": "sdk-health",
+        "name": "SDK 兼容性检查",
+        "description": "读取真实 SDK 程序集、适配器能力与桌面依赖。",
+        "readOnly": true,
+        "source": "built-in",
+        "desktopInteraction": false
+      },
+      {
+        "id": "sdk-session",
+        "name": "读取 SDK 会话",
+        "description": "使用 C# SDK 获取账号和当前可见会话；会聚焦/调整微信窗口。",
+        "readOnly": true,
+        "source": "built-in",
+        "desktopInteraction": true
+      },
+      {
+        "id": "sdk-contacts",
+        "name": "读取通讯录姓名",
+        "description": "通过 C# SDK 读取已登录账号的通讯录，可能切换微信页面并写入本地 SDK 缓存。",
+        "readOnly": true,
+        "source": "built-in",
+        "desktopInteraction": true
+      },
+      {
+        "id": "session-snapshot",
+        "name": "桌面会话快照",
+        "description": "读取宿主已经采集的客户端状态，不读取私聊内容。",
+        "readOnly": true,
+        "source": "local-assembly",
+        "desktopInteraction": false
+      }
+    ],
+    "message": "后台宿主已启动。微信需在同一 Windows 用户桌面中运行，扫码登录在官方窗口完成。",
+    "managed": true,
+    "installed": true
+  },
+  "sdk_plugins": {
+    "ok": true,
+    "plugins": [
+      {
+        "id": "sdk-health",
+        "name": "SDK 兼容性检查",
+        "description": "读取真实 SDK 程序集、适配器能力与桌面依赖。",
+        "readOnly": true,
+        "source": "built-in",
+        "desktopInteraction": false
+      },
+      {
+        "id": "sdk-session",
+        "name": "读取 SDK 会话",
+        "description": "使用 C# SDK 获取账号和当前可见会话；会聚焦/调整微信窗口。",
+        "readOnly": true,
+        "source": "built-in",
+        "desktopInteraction": true
+      },
+      {
+        "id": "sdk-contacts",
+        "name": "读取通讯录姓名",
+        "description": "通过 C# SDK 读取已登录账号的通讯录，可能切换微信页面并写入本地 SDK 缓存。",
+        "readOnly": true,
+        "source": "built-in",
+        "desktopInteraction": true
+      },
+      {
+        "id": "session-snapshot",
+        "name": "桌面会话快照",
+        "description": "读取宿主已经采集的客户端状态，不读取私聊内容。",
+        "readOnly": true,
+        "source": "local-assembly",
+        "desktopInteraction": false
+      }
+    ],
+    "errors": []
+  },
+  "sdk_health": {
+    "ok": true,
+    "id": "sdk-health",
+    "result": {
+      "loaded": true,
+      "name": "WeChatAuto4x.SDK",
+      "packageVersion": "2.1.4",
+      "assembly": "WeChatAuto",
+      "supportedClient": "4.x (按原 SDK 的窗口兼容性)",
+      "target": ".NET 10 / Windows x64",
+      "originalSource": "scottfly189/WeChatAuto.SDK",
+      "adapter": "public-sdk-ui-automation",
+      "capabilities": [
+        "official-login-launch",
+        "process-status",
+        "sdk-account-session",
+        "sdk-visible-conversations",
+        "sdk-contact-names",
+        "local-readonly-plugins"
+      ],
+      "forceOpenUiTree": false,
+      "registryInitialization": false,
+      "ocrEnabled": false,
+      "injection": false,
+      "notes": "读取账号/通讯录会调用 SDK 的公开 UIA 接口，可能切换、聚焦或调整微信窗口。UI Tree 未开放时会返回失败。"
+    }
+  },
+  "plugin_sample": {
+    "ok": true,
+    "id": "session-snapshot",
+    "result": {
+      "state": "client-not-running",
+      "message": "未检测到官方微信客户端。点击打开微信并扫码登录。",
+      "processes": [],
+      "accounts": [],
+      "checkedAt": "2026-10-15T07:33:27.8067522+00:00",
+      "lastSdkReadAt": null,
+      "requiresInteractiveDesktop": true,
+      "authenticationVerifiedContinuously": false
+    }
+  },
+  "sdk_stop": {
+    "ok": true,
+    "running": false,
+    "message": "C# SDK 服务已停止，微信客户端继续运行"
+  },
+  "service_stop": {
+    "ok": true,
+    "message": "工作台正在安全停止"
+  },
+  "service_exit_code": 0
+}

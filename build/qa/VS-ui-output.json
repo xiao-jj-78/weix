@@ -1,0 +1,172 @@
+[
+  {
+    "type": "Text",
+    "text": "WeChatWorkspace",
+    "id": ""
+  },
+  {
+    "type": "ComboBox",
+    "text": "解决方案配置",
+    "id": "PART_FocusTarget"
+  },
+  {
+    "type": "ComboBox",
+    "text": "解决方案平台",
+    "id": "PART_FocusTarget"
+  },
+  {
+    "type": "TabItem",
+    "text": "MainPage.xaml.cs",
+    "id": ""
+  },
+  {
+    "type": "Edit",
+    "text": "using System.Collections.ObjectModel;\nusing System.Text.Json;\nusing WeChatLikeMaui.Models;\nusing WeChatLikeMaui.Services;\n\nnamespace WeChatLikeMaui;\n\npublic partial class MainPage : ContentPage\n{\n    private readonly ConsoleApi _api = new();\n    private readonly ObservableCollection<TaskItem> _tasks = [];\n    private readonly IDispatcherTimer _timer;\n    private readonly SemaphoreSlim _refreshGate = new(1, 1);\n    private readonly SemaphoreSlim _deviceGate = new(1, 1);\n    private readonly SemaphoreSlim _sdkGate = new(1, 1);\n    private CancellationTokenSource _session = new();\n    private string _logTask = \"\";\n    private bool _connected, _busy, _sdkRunning, _sdkBusy;\n    private int _cycle;\n    private string _tab = \"dashboard\";\n\n    public MainPage()\n    {\n        InitializeComponent();\n        InitializeAi();\n        MomentsContactsSelector.SetAutomationPrefix(\"Moments\");\n        BindableLayout.SetItemsSource(TaskList, _tasks);\n        IpEntry.Text = Preferences.Get(\"ip\", DeviceInfo.Platform == DevicePlatform.WinUI ? \"127.0.0.1\" : \"\");\n        PortEntry.Text = Preferences.Get(\"port\", \"8765\");\n#if WINDOWS\n        LocalBtn.IsVisible = true;\n#endif\n        _timer = Dispatcher.CreateTimer();\n        _timer.Interval = TimeSpan.FromSeconds(2.5);\n        _timer.Tick += async (_, _) => await RefreshAsync();\n        SetConnected(false);\n    }\n\n    private CancellationToken Token => _session.Token;\n    private void NewSession()\n    {\n        _session.Cancel();\n        _session.Dispose();\n        _session = new CancellationTokenSource();\n    }\n    private void Notice(string message, bool error = true)\n    {\n        NoticeLabel.Text = message;\n        NoticeLabel.TextColor = Color.FromArgb(error ? \"#914138\" : \"#14725D\");\n        NoticeLabel.IsVisible = !string.IsNullOrWhiteSpace(message);\n    }\n    private void SetBusy(bool value)\n    {\n        _busy = value;\n        ConnectionBusy.IsVisible = value;\n        ConnectionBusy.IsRunning = value;\n        ConnectBtn.IsEnabled = LocalBtn.IsEnabled = IpEntry.IsEnabled = PortEntry.IsEnabled = !value;\n        DisconnectBtn.IsEnabled = !value;\n        UpdateAvailability();\n    }\n    private void SetConnected(bool connected)\n    {\n        _connected = connected;\n        ConnectionBadge.Text = connected ? \"已连接\" : \"未连接\";\n        ConnectionBadge.TextColor = Color.FromArgb(connected ? \"#9CE0BF\" : \"#E0EBE7\");\n        ServerState.Text = connected ? \"在线\" : \"离线\";\n        ConnectBtn.Text = connected ? \"重新连接\" : \"连接电脑\";\n        DisconnectBtn.IsVisible = connected;\n        foreach (var item in _tasks) item.SetAvailable(connected && !_busy);\n        if (!connected)\n        {\n            RunningCount.Text = DeviceCount.Text = \"—\";\n            DeviceSummary.Text = \"等待连接\";\n            TaskHint.Text = \"离线\";\n            _sdkRunning = false;\n            SdkBadge.Text = \"未连接\";\n            _aiLoaded = false;\n            _aiRunning = false;\n            AiBadge.Text = \"未连接\";\n        }\n        UpdateAvailability();\n    }\n    private void UpdateAvailability()\n    {\n        bool available = _connected && !_busy;\n        LogTaskBtn.IsEnabled = available && _tasks.Count > 0;\n        DevicesBtn.IsEnabled = SaveConfigBtn.IsEnabled = ReloadConfigBtn.IsEnabled = available;\n        SdkRefreshBtn.IsEnabled = available && !_sdkBusy;\n        SdkStartBtn.IsEnabled = available && !_sdkBusy && !_sdkRunning;\n        SdkStopBtn.IsEnabled = SdkLoginBtn.IsEnabled = available && !_sdkBusy && _sdkRunning;\n        PluginList.IsEnabled = available && !_sdkBusy && _sdkRunning;\n        MomentsContactsSelector.IsEnabled = available;\n        MomentsContactsBtn.IsEnabled = available && _sdkRunning && !_contactsBusy;\n        UpdateAiAvailability();\n        foreach (var item in _tasks) item.SetAvailable(available);\n    }\n\n    private async void OnConnectClicked(object? sender, EventArgs e) => await ConnectAsync(false);\n    private async void OnLaunchLocalClicked(object? sender, EventArgs e) => await ConnectAsync(true);\n\n    private async Task ConnectAsync(bool launch)\n    {\n        if (_busy) return;\n        _timer.Stop();\n        NewSession();\n        SetConnected(false);\n        SetBusy(true);\n        Notice(\"\");\n        var token = Token;\n        try\n        {\n            if (launch) IpEntry.Text = \"127.0.0.1\";\n            _api.Configure(IpEntry.Text ?? \"\", PortEntry.Text ?? \"8765\");\n            StatusLabel.Text = launch ? \"正在启动本机服务，首次启动可能需要几十秒…\" : \"正在连接电脑端…\";\n            if (launch) await LocalConsoleHost.EnsureStartedAsync(int.Parse(_api.Port), token);\n            await _api.PingAsync(token);\n            token.ThrowIfCancellationRequested();\n            SetConnected(true);\n            Preferences.Set(\"ip\", _api.Host);\n            Preferences.Set(\"port\", _api.Port);\n            EndpointLabel.Text = _api.BaseUrl;\n            await RefreshAsync(force: true);\n            if (!_connected) return;\n            await LoadConfigAsync(token);\n            await RefreshDevicesAsync(token);\n            await RefreshSdkAsync(token);\n     ",
+    "id": "WpfTextView"
+  },
+  {
+    "type": "ComboBox",
+    "text": "Projects",
+    "id": "ProjectsList"
+  },
+  {
+    "type": "ComboBox",
+    "text": "Objects",
+    "id": "ScopesList"
+  },
+  {
+    "type": "ComboBox",
+    "text": "Members",
+    "id": "FunctionsList"
+  },
+  {
+    "type": "ComboBox",
+    "text": "缩放控件",
+    "id": "ZoomControl"
+  },
+  {
+    "type": "Text",
+    "text": "未找到相关问题",
+    "id": ""
+  },
+  {
+    "type": "Text",
+    "text": "行: 1, 字符: 1",
+    "id": ""
+  },
+  {
+    "type": "Text",
+    "text": "错误列表",
+    "id": ""
+  },
+  {
+    "type": "ComboBox",
+    "text": "显示其中包含的项",
+    "id": "PART_FocusTarget"
+  },
+  {
+    "type": "Text",
+    "text": "错误 0",
+    "id": ""
+  },
+  {
+    "type": "Text",
+    "text": "警告 3",
+    "id": ""
+  },
+  {
+    "type": "Text",
+    "text": "展示 1 个消息中的 0 个",
+    "id": ""
+  },
+  {
+    "type": "ComboBox",
+    "text": "显示所生成的问题",
+    "id": "PART_FocusTarget"
+  },
+  {
+    "type": "ComboBox",
+    "text": "搜索",
+    "id": "SearchControl"
+  },
+  {
+    "type": "Edit",
+    "text": "",
+    "id": "PART_SearchBox"
+  },
+  {
+    "type": "Text",
+    "text": "解决方案资源管理器",
+    "id": ""
+  },
+  {
+    "type": "TabItem",
+    "text": "解决方案资源管理器",
+    "id": "TAB_ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+  },
+  {
+    "type": "Text",
+    "text": "解决方案资源管理器",
+    "id": "Text"
+  },
+  {
+    "type": "ComboBox",
+    "text": "搜索",
+    "id": "SearchControl"
+  },
+  {
+    "type": "Edit",
+    "text": "",
+    "id": "PART_SearchBox"
+  },
+  {
+    "type": "TabItem",
+    "text": "Git 更改",
+    "id": "TAB_ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+  },
+  {
+    "type": "Text",
+    "text": "Git 更改",
+    "id": "Text"
+  },
+  {
+    "type": "Text",
+    "text": "添加到源代码管理",
+    "id": ""
+  },
+  {
+    "type": "Text",
+    "text": "选择仓库",
+    "id": ""
+  },
+  {
+    "type": "Text",
+    "text": "生成 WeChatLikeMaui... 已启动",
+    "id": ""
+  },
+  {
+    "type": "Text",
+    "text": "就绪",
+    "id": ""
+  },
+  {
+    "type": "Text",
+    "text": "就绪",
+    "id": "TextCompartment"
+  },
+  {
+    "type": "Text",
+    "text": "",
+    "id": "XYWidthHeightCompartment"
+  },
+  {
+    "type": "Text",
+    "text": "",
+    "id": "SelectionModeCompartment"
+  },
+  {
+    "type": "Text",
+    "text": "",
+    "id": "InsertionModeCompartment"
+  }
+]

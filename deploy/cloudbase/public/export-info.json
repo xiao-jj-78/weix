@@ -1,0 +1,11 @@
+{
+  "source": "build/console/console_app/web_dashboard.py:MOBILE_PAGE",
+  "includes": [
+    "sdk",
+    "ai-profiles",
+    "moments-user-selection"
+  ],
+  "authentication": "Bearer browser access code; sessionStorage only",
+  "deployment": "prepared locally; no cloud deployment performed by exporter",
+  "indexSha256": "d22a1b3c9ff7975939ad682e8858fe4ada7b837a22560272368e9de48c09ae5d"
+}

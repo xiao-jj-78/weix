@@ -1,0 +1,115 @@
+{
+  "rot": [
+    "!VisualStudio.DTE.18.0:51264"
+  ],
+  "version": "18.0",
+  "solution": "C:\\Users\\upwar\\WorkBuddy\\2026-10-15-12-40-20\\WeChatWorkspace.slnx",
+  "configuration": "Debug",
+  "startup": [
+    "build\\maui\\WeChatLikeMaui\\WeChatLikeMaui.csproj"
+  ],
+  "build_state": 1,
+  "last_build_info": {
+    "error": "(-2147352567, '发生意外。', (0, 'Microsoft.VisualStudio.CommonIDE', '必须先执行生成，此信息才可用。', None, 0, -2147467259), None)"
+  },
+  "debug_mode": 1,
+  "debug_processes": [],
+  "projects": [
+    {
+      "name": "build",
+      "kind": "{66A26720-8FB5-11D2-AA7E-00C04F688DDE}",
+      "unique": "build{DEE5DD87-39C1-BF34-B639-A387DCCF972B}",
+      "file": "",
+      "subprojects": [
+        {
+          "name": "maui",
+          "kind": "{66A26720-8FB5-11D2-AA7E-00C04F688DDE}",
+          "unique": "maui{1AA7FA88-A908-5755-CFFA-09D99F49F814}",
+          "file": "",
+          "subprojects": [
+            {
+              "name": "WeChatLikeMaui",
+              "kind": "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}",
+              "unique": "build\\maui\\WeChatLikeMaui\\WeChatLikeMaui.csproj",
+              "file": "C:\\Users\\upwar\\WorkBuddy\\2026-10-15-12-40-20\\build\\maui\\WeChatLikeMaui\\WeChatLikeMaui.csproj",
+              "subprojects": []
+            }
+          ]
+        },
+        {
+          "name": "sdk",
+          "kind": "{66A26720-8FB5-11D2-AA7E-00C04F688DDE}",
+          "unique": "sdk{79AB76AA-5E35-1D3D-C572-9D46F870A6F7}",
+          "file": "",
+          "subprojects": [
+            {
+              "name": "WeChatSdk.PluginContracts",
+              "kind": "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}",
+              "unique": "build\\sdk\\WeChatSdk.PluginContracts\\WeChatSdk.PluginContracts.csproj",
+              "file": "C:\\Users\\upwar\\WorkBuddy\\2026-10-15-12-40-20\\build\\sdk\\WeChatSdk.PluginContracts\\WeChatSdk.PluginContracts.csproj",
+              "subprojects": []
+            },
+            {
+              "name": "WeChatSdk.SamplePlugin",
+              "kind": "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}",
+              "unique": "build\\sdk\\WeChatSdk.SamplePlugin\\WeChatSdk.SamplePlugin.csproj",
+              "file": "C:\\Users\\upwar\\WorkBuddy\\2026-10-15-12-40-20\\build\\sdk\\WeChatSdk.SamplePlugin\\WeChatSdk.SamplePlugin.csproj",
+              "subprojects": []
+            },
+            {
+              "name": "WeChatSdkHost",
+              "kind": "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}",
+              "unique": "build\\sdk\\WeChatSdkHost\\WeChatSdkHost.csproj",
+              "file": "C:\\Users\\upwar\\WorkBuddy\\2026-10-15-12-40-20\\build\\sdk\\WeChatSdkHost\\WeChatSdkHost.csproj",
+              "subprojects": []
+            },
+            {
+              "name": "vendor",
+              "kind": "{66A26720-8FB5-11D2-AA7E-00C04F688DDE}",
+              "unique": "vendor{C5777A64-542C-2201-835D-7C6A4FA2B164}",
+              "file": "",
+              "subprojects": [
+                {
+                  "name": "WeChatAuto.SDK",
+                  "kind": "{66A26720-8FB5-11D2-AA7E-00C04F688DDE}",
+                  "unique": "WeChatAuto.SDK{1A2082F9-56A7-DC5D-95B4-84205BBCE0EF}",
+                  "file": "",
+                  "subprojects": [
+                    {
+                      "name": "WeAutoCommon",
+                      "kind": "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}",
+                      "unique": "build\\sdk\\vendor\\WeChatAuto.SDK\\WeAutoCommon\\WeAutoCommon.csproj",
+                      "file": "C:\\Users\\upwar\\WorkBuddy\\2026-10-15-12-40-20\\build\\sdk\\vendor\\WeChatAuto.SDK\\WeAutoCommon\\WeAutoCommon.csproj",
+                      "subprojects": []
+                    },
+                    {
+                      "name": "WeChatAuto4_X",
+                      "kind": "{66A26720-8FB5-11D2-AA7E-00C04F688DDE}",
+                      "unique": "WeChatAuto4_X{278D0297-1C9B-D4F0-94E9-0586061BC133}",
+                      "file": "",
+                      "subprojects": [
+                        {
+                          "name": "WeChatAuto",
+                          "kind": "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}",
+                          "unique": "build\\sdk\\vendor\\WeChatAuto.SDK\\WeChatAuto4_X\\WeChatAuto\\WeChatAuto.csproj",
+                          "file": "C:\\Users\\upwar\\WorkBuddy\\2026-10-15-12-40-20\\build\\sdk\\vendor\\WeChatAuto.SDK\\WeChatAuto4_X\\WeChatAuto\\WeChatAuto.csproj",
+                          "subprojects": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "active_document": {
+    "error": "'NoneType' object has no attribute 'FullName'"
+  },
+  "panes": {
+    "error": "<unknown>.ToolWindows"
+  }
+}

@@ -1,0 +1,854 @@
+[
+  {
+    "path": "LICENSE",
+    "bytes": 1085,
+    "sha256": "C940CBA86C3583DFA50567462C6933D24B1B44B6FC6B4055DC5CBD0D45BB7AFA",
+    "identical": true
+  },
+  {
+    "path": "README.md",
+    "bytes": 11988,
+    "sha256": "55EC4298992A45C7FE403993240E828D9EFF5EBA36A40F97A7B6BC71A1E059F3",
+    "identical": true
+  },
+  {
+    "path": "WeAutoCommon/WeAutoCommon.csproj",
+    "bytes": 2316,
+    "sha256": "EEAE662B1373A73E95FF8FE35DD04F1D69F16B4EA0C4688A03AD97126BC4385D",
+    "identical": true
+  },
+  {
+    "path": "WeAutoCommon/WeAutoCommon.csproj.lscache",
+    "bytes": 62095,
+    "sha256": "6957D0B18CC735A4F8F8F6C9098612D19AA69205850FC3EBEC1D777E7998363B",
+    "identical": true
+  },
+  {
+    "path": "WeAutoCommon/Configs/WeChatConfig.cs",
+    "bytes": 11608,
+    "sha256": "997FECAA912D6F2A311BBA4ED538CB9136E1856D4AB9CE4F3AD31B8EBCF99EB5",
+    "identical": true
+  },
+  {
+    "path": "WeAutoCommon/Configs/WeMettingConfig.cs",
+    "bytes": 147,
+    "sha256": "08416417AF46AF5D79A53F4BD1F1EE7382DF9D953EA3FE1936ABB9A5A8202859",
+    "identical": true
+  },
+  {
+    "path": "WeAutoCommon/Enums/ActionType.cs",
+    "bytes": 303,
+    "sha256": "905211D99B9823F726BFA485A63BC469AD550720BC9E3103C08FAB61EE227319",
+    "identical": true
+  },
+  {
+    "path": "WeAutoCommon/Enums/ChatBoxToolBarType.cs",
+    "bytes": 215,
+    "sha256": "BF223FFD706A63CD500A8EBD09D7E271A84D2E20CA0F887CCE6005607E2BDA2C",
+    "identical": true
+  },
+  {
+    "path": "WeAutoCommon/Enums/ChatContentType.cs",
+    "bytes": 194,
+    "sha256": "39B7F15ACEBA8F92C3D555E99AD9DEBC896A006B0A73A00631A7DF4111C40CE3",
+    "identical": true
+  },
+  {
+    "path": "WeAutoCommon/Enums/ChatType.cs",
+    "bytes": 370,
+    "sha256": "3748A89F9A5072CD124C3B957931B0E32D41DA08AB47A0B108836F9354C2D6B5",
+    "identical": true
+  },
+  {
+    "path": "WeAutoCommon/Enums/ConversationType.cs",
+    "bytes": 486,
+    "sha256": "F383F43569B73477FD5B0B2DB5DFBE6C0A66CAF0BA3E63A71DB2B8092C59AF23",
+    "identical": true
+  },
+  {
+    "path": "WeAutoCommon/Enums/CopyType.cs",
+    "bytes": 317,
+    "sha256": "C7925E95EC3A83267E916869618DA441A4FBB621E900CD34211BFC25EF5DDE9E",
+    "identical": true
+  },
+  {
+    "path": "WeAutoCommon/Enums/DirectionInfo.cs",
+    "bytes": 189,
+    "sha256": "AFDDD022D7CAC0346985762D26FA230BC50C0B7085CF70FB6ADF16360951E6CB",
+    "identical": true
+  },
+  {
+    "path": "WeAutoCommon/Enums/ForwardMessageTypeEnums.cs",
+    "bytes": 279,
+    "sha256": "C69060D60106CF0C542313AB78C9FD8B1E87D41ADD1A782C9958ACB7521C3E97",
+    "identical": true
+  },
+  {
+    "path": "WeAutoCommon/Enums/FriendAddResult.cs",
+    "bytes": 801,
+    "sha256": "B5AB0E10E28EAEA55C696E9D926639524A24BFDB456AF68A068CE2745D9E968A",
+    "identical": true
+  },
+  {
+    "path": "WeAutoCommon/Enums/FriendSearchResult.cs",
+    "bytes": 556,
+    "sha256": "9AF43EC64397E02EC8ACB3DDB32B792C360B91ED2BFF69BD92A7A800BB558102",
+    "identical": true
+  },
+  {
+    "path": "WeAutoCommon/Enums/MessageSourceType.cs",
+    "bytes": 242,
+    "sha256": "EA69A5DF9D5908A3E2461B55306A28A47D32F54E8580F6DADE81A528182C57AA",
+    "identical": true
+  },
+  {
+    "path": "WeAutoCommon/Enums/MessageType.cs",
+    "bytes": 645,
+    "sha256": "781F76573E07F5D1E55D9CF9FE6227D6600C01C2E7218ECB491A72FEB2855321",
+    "identical": true
+  },
+  {
+    "path": "WeAutoCommon/Enums/NavigationType.cs",
+    "bytes": 405,
+    "sha256": "C056F8DED2C278D24D12165767E30CB54C498BFD35F380E63AA0C3F0993ECDF3",
+    "identical": true
+  },
+  {
+    "path": "WeAutoCommon/Exceptions/WindowNotExsitException.cs",
+    "bytes": 275,
+    "sha256": "1753C7C7927CA68E07B59E67DA581BC3AB6DFEFBDF627C845C7083BF81F3BF74",
+    "identical": true
+  },
+  {
+    "path": "WeAutoCommon/Extentions/RandomPointExtention.cs",
+    "bytes": 2401,
+    "sha256": "740DAC3197C8E3C152B1683208671E37445EFAA02CF0DA93C87542BBB4EE67E6",
+    "identical": true
+  },
+  {
+    "path": "WeAutoCommon/Interface/IWeChatWindow.cs",
+    "bytes": 256,
+    "sha256": "DD29CBCA31D5B6795AB6856899133F275BD9CAF373BD0EE1A11841C0F3F2BDFC",
+    "identical": true
+  },
+  {
+    "path": "WeAutoCommon/Models/ChatActionMessage.cs",
+    "bytes": 1050,
+    "sha256": "5C8A65050438E86FB34E75521D5AEB66E21341C11EDA0A0DC5D2784C0E1AF030",
+    "identical": true
+  },
+  {
+    "path": "WeAutoCommon/Models/ChatGroupOptions.cs",
+    "bytes": 5582,
+    "sha256": "3E36C96DCE0D1C2DE4029E8259CD95E1CB44F74A953F087D767F7F4DC8ED211E",
+    "identical": true
+  },
+  {
+    "path": "WeAutoCommon/Models/ChatResponse.cs",
+    "bytes": 595,
+    "sha256": "498FBF8A700193396C5CA4E2382F061247397B1F958F7BB3D7E26B816F20B5FB",
+    "identical": true
+  },
+  {
+    "path": "WeAutoCommon/Models/Conversation.cs",
+    "bytes": 3033,
+    "sha256": "007F003E8E355007A3721AD98E3F1AF26C8F10031EF7C4D4D6BE2E2D57EFF000",
+    "identical": true
+  },
+  {
+    "path": "WeAutoCommon/Models/EmojiItem.cs",
+    "bytes": 445,
+    "sha256": "C326E0D3AB5C04A5E466B7D7F4B41F1EF1D3230A1E9AA298A2D00FB47874964F",
+    "identical": true
+  },
+  {
+    "path": "WeAutoCommon/Models/FriendInfo.cs",
+    "bytes": 3739,
+    "sha256": "4BACBBF8631DA88D7D2A7DA76575F171BC52A3FC354AED4A3BAF46456F9EA628",
+    "identical": true
+  },
+  {
+    "path": "WeAutoCommon/Models/FunctionalExtensions.cs",
+    "bytes": 4243,
+    "sha256": "5781A38D4375029582A6C236A46CFC38AC5D5BCD6D6F70425784DF97D46B2242",
+    "identical": true
+  },
+  {
+    "path": "WeAutoCommon/Models/HeaderInfo.cs",
+    "bytes": 1537,
+    "sha256": "B50B7E324914F5EEADC0E983F2AE1AD15EB27F4CA90AEF32B2A90B7846547725",
+    "identical": true
+  },
+  {
+    "path": "WeAutoCommon/Models/Maybe.cs",
+    "bytes": 2376,
+    "sha256": "CBFA8289857F4E26A2ABDAB950963BDFA77CEC4377079DA1E02207B38C627E59",
+    "identical": true
+  },
+  {
+    "path": "WeAutoCommon/Models/MomentItem.cs",
+    "bytes": 6179,
+    "sha256": "46B37D9BF6FC8B43ED51820F47537588E80E0E87B5F7EDDE77179F2B6DE8246D",
+    "identical": true
+  },
+  {
+    "path": "WeAutoCommon/Models/Result.cs",
+    "bytes": 1411,
+    "sha256": "F3AC234930715799B1631691C6B0F03A5FCE41FAC0AEE33ED9E527D385DC8552",
+    "identical": true
+  },
+  {
+    "path": "WeAutoCommon/Simulator/Skm.cs",
+    "bytes": 10899,
+    "sha256": "556218B60D25EC29B615BDF547D9EB973B9FCB6FC419C86553B9FC30FD888215",
+    "identical": true
+  },
+  {
+    "path": "WeAutoCommon/Simulator/x64/skm.dll",
+    "bytes": 335872,
+    "sha256": "65681764E05CCD129CC402CF969D01F2E10E0D63FFB2C9B51A4C91C40536B048",
+    "identical": true
+  },
+  {
+    "path": "WeAutoCommon/Simulator/x86/skm.dll",
+    "bytes": 273408,
+    "sha256": "A31C4CDA28542F4DC8A17AEFFCD5A1BB6E6C3C0AA2F808FAFB40CA368732C560",
+    "identical": true
+  },
+  {
+    "path": "WeAutoCommon/Utils/AutomationElementHelper.cs",
+    "bytes": 672,
+    "sha256": "CFCBE8379AA236976C143283B1656C5376484FBC0826F539CFDAEB7851E06F3E",
+    "identical": true
+  },
+  {
+    "path": "WeAutoCommon/Utils/AutomationValid.cs",
+    "bytes": 472,
+    "sha256": "B16EC25CA8E69BE977DF3C8E960F05EA6445056CC720962DCFA8B64964D721C7",
+    "identical": true
+  },
+  {
+    "path": "WeAutoCommon/Utils/EmojiListHelper.cs",
+    "bytes": 10316,
+    "sha256": "EBC5C49B66BE053D584E4F5A60394C1E37BE18A5C2BC3588EB79AD2704435F62",
+    "identical": true
+  },
+  {
+    "path": "WeAutoCommon/Utils/FriendListenerOptions.cs",
+    "bytes": 582,
+    "sha256": "FB9032AF56714B194E6879EE221971A2966C110EA932ED8316784883531303C5",
+    "identical": true
+  },
+  {
+    "path": "WeAutoCommon/Utils/IMEHelper.cs",
+    "bytes": 8745,
+    "sha256": "EE35E8FFED069DD3252B6C49223FCA470CF642F05EFD63B917CFAFD405D39373",
+    "identical": true
+  },
+  {
+    "path": "WeAutoCommon/Utils/RandomWait.cs",
+    "bytes": 957,
+    "sha256": "51C71E3AF23CF5DD8140110D30D91FE7F48F9A50D14F29816971BBCE0679CE77",
+    "identical": true
+  },
+  {
+    "path": "WeAutoCommon/Utils/RegistryHelper.cs",
+    "bytes": 1807,
+    "sha256": "41A263E27F641CAC96DEE45974ED79A2E4C822B5D1259E57F828E4C3B611439A",
+    "identical": true
+  },
+  {
+    "path": "WeAutoCommon/Utils/UIThreadInvoker.cs",
+    "bytes": 5661,
+    "sha256": "9844299B85587BF04DD22436A9ED98A25E44A896BB39A109332F2063EF7D28F4",
+    "identical": true
+  },
+  {
+    "path": "WeAutoCommon/Utils/WeChatConstant.cs",
+    "bytes": 9690,
+    "sha256": "E59F48EB23761060729D49FA4ECB75632F6EC3168D2FE3281FF2E4AC71EF9847",
+    "identical": true
+  },
+  {
+    "path": "WeAutoCommon/Utils/WeChatTextIdentifiers.cs",
+    "bytes": 27335,
+    "sha256": "78889582FF62DCE0D4A45D3DC3247F4ECCECEEC3AD2DE5D6081382C0C18407DF",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/README.md",
+    "bytes": 58,
+    "sha256": "773C238BF217832F9B73BE833022318A658E8F75C1AB0B8C354450FE0498A243",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/WeChatAuto.csproj",
+    "bytes": 2770,
+    "sha256": "C58B817404292A6D5DE77AD27B9D8DD753D48E18E1C794F3EBED1E05231CC4BD",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/WeChatAuto.csproj.lscache",
+    "bytes": 85692,
+    "sha256": "B22D47C7598687E364572F5595067F837DB913A8E796AEA54ED08298262DFAF1",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/WeChatAuto.sln",
+    "bytes": 1090,
+    "sha256": "1C2327445A0B91B7E104D68FD29BBDB1B39DCFAD6E7738B1F9D4817C8BCE90A0",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Components/AddressBookList.cs",
+    "bytes": 54748,
+    "sha256": "721E435FCE66ACDC3B011211EC9E30F8591DDF1F13A778895E3087BD1332E98E",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Components/CacheManager.cs",
+    "bytes": 12816,
+    "sha256": "0021F3F56CF9458EE26085935FF640D0A55FFE742E0258FA778CF0D2D390E28B",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Components/ChatContent.cs",
+    "bytes": 12183,
+    "sha256": "331E0531B02B5DCBB7652CE705B8761519E743C960B46FCFC9AF52601C32D199",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Components/ChatHeader.cs",
+    "bytes": 4957,
+    "sha256": "CEBF374D2298533B8C3318B6FA4C47C227350BCE7F8CBD1D2F481CE12FE4C4BD",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Components/ConversationList.cs",
+    "bytes": 34344,
+    "sha256": "479842CAFF48B126B13EC0ADE77C4A45663DAC3368543F22E3A5998E800576E0",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Components/Group.cs",
+    "bytes": 29975,
+    "sha256": "63456FBBDE7E7CA3BF24873BAAB86C3D9AEAF51C6036AF0E8A8E8559E681215F",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Components/MessageBubbleList.cs",
+    "bytes": 87459,
+    "sha256": "9E534EB200ADB70742A25764CE8A67FC10C81207A5B79056943125CDEBAEB903",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Components/MessageMonitor.cs",
+    "bytes": 2288,
+    "sha256": "6DF4A774060A1F3600E1630C703D29DA6D65AA129FEFBBCF5EF205D29C989D45",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Components/Moments.cs",
+    "bytes": 1459,
+    "sha256": "1BC153F5C8EB68A131C5525ACB6039D4A2B1C163F166F5EB19989824BDDF3C33",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Components/Navigation.cs",
+    "bytes": 14101,
+    "sha256": "91DB3ADFD7B6FABF3C1CE6BA8D2AB7126E8AF85D2BF08D8F893302070EA957A1",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Components/NewFriendMonitor.cs",
+    "bytes": 15543,
+    "sha256": "C96781CE0035B9EE6B9F2361ADCA4BF97A18013E1DB41C24F1848967ED9FC8BA",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Components/OuterGroup.cs",
+    "bytes": 30456,
+    "sha256": "F46E80671191118FC8065FF92BA8456D8B48DF789E14F1BD91CB49244CD66AC2",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Components/OwnerGroup.cs",
+    "bytes": 35690,
+    "sha256": "CA259EB103F90EC3190BAFD69C9CFC6E7A8DF3123CBF444BEDAE3EF0AF79C491",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Components/Search.cs",
+    "bytes": 28755,
+    "sha256": "A9FEC4601F4E2145FBE660A1C9A363B572D934A710041AAD57D48B00795159A3",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Components/Sender.cs",
+    "bytes": 41171,
+    "sha256": "B0E120AA9697805FF2D4DB3C40AA72585344057AB966B553ED8F391091A47B02",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Components/ShellNotifyIcon.cs",
+    "bytes": 3103,
+    "sha256": "42B337A33562FD62E9E61C7F032974BF96A284FCE423BE013D1CC82379BECA9A",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Components/ToolBar.cs",
+    "bytes": 4835,
+    "sha256": "12187A7F629F23E61D3B4B61C6C93BF71EFA51DBDE359118A48B54E10297445C",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Components/WeChatClient.cs",
+    "bytes": 46740,
+    "sha256": "8BD4F664831BAE3559E5F86D472F582DC1E5FAADCB357D1F66FE2002C5A31E3D",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Components/WeChatClientFactory.cs",
+    "bytes": 23156,
+    "sha256": "60358B267B0160CA0A03736B87B58D10E47D4431962D0D8BEC3338D0C7E2A3AE",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Exceptions/WechatClientNotExistException.cs",
+    "bytes": 660,
+    "sha256": "E7C482C0248CE3F0BC38BD99EBB55BBCA3A2F09327BC2F566AB1024291C3498C",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Exceptions/WechatNotOpenedException.cs",
+    "bytes": 634,
+    "sha256": "96325AD47D9038155034DEA7AF01A4A1D8D1F35F61AF85B36E2DF532561EB5B1",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Exceptions/WechatNotSupportUITreeException.cs",
+    "bytes": 664,
+    "sha256": "5DB2663DF1AE75B367F6074ACAFD1ECC64C15BAD692257BD720960EC9657F0BF",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Extentions/AutoLoggerExtensions.cs",
+    "bytes": 957,
+    "sha256": "F082B9B2E4EF79AB5E6960CE5445DE0DB076EABE94420FF097A6F321F78B66B7",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Extentions/AutomationElementExtensions.cs",
+    "bytes": 2391,
+    "sha256": "574E1BF243C00436C6C7EF5BF8F4CF80CF90D5B2F6869B16FB83C5757333D916",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Extentions/ClickEnhanceExtentions.cs",
+    "bytes": 1692,
+    "sha256": "5CDF972BD1B0E5CC82E8562231A15A9F866E30000C5C1566F88BADA6C4C4C8ED",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Extentions/KMSimulatorExtensions.cs",
+    "bytes": 476,
+    "sha256": "A627710D9FEE9F40347E3C5E2A82DA2CA06B6BF38334D01D831A383162F7844D",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Extentions/RuntimeIDExtensions.cs",
+    "bytes": 478,
+    "sha256": "939B84B74E38B11E110303B55C64059C0EB41CD43C52346911DA3F8B1A56FBFB",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Extentions/WeChatCaptureImage.cs",
+    "bytes": 1868,
+    "sha256": "462B3830D5F1942061F6934C90B3A6832140EE5E33902BC38F2649C0E642D424",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Extentions/WindowSlienceAction.cs",
+    "bytes": 6306,
+    "sha256": "1A8A64751728B9308F98BAABB0FBC3BE542BE4D20999474FBB52D2E90E8FCA37",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Models/ChatRefer.cs",
+    "bytes": 929,
+    "sha256": "7684424A5095C1D60D4D3550ADA8D38747118C7730E8B048F7E71397E7DE5416",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Models/ChatSimpleMessage.cs",
+    "bytes": 1076,
+    "sha256": "F6896A41E9823E2A5C488A963FC5D97892B8EE2A86F8741ED23C526469F9761E",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Models/DateTimeRange.cs",
+    "bytes": 438,
+    "sha256": "64EBC8FECEFBDFDC11B57488F3C34774F7EA3931843BB4B739E2CF0B90F31014",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Models/FetchedMedia.cs",
+    "bytes": 509,
+    "sha256": "C90B78608CD4B970403643B0CE4343666994525FB974F5F940299A778C86B78A",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Models/ImageCacheItem.cs",
+    "bytes": 278,
+    "sha256": "1B7AEBD6D3CA802E7802AE501E021137F857E2F6A64D105584F7633705A1E466",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Models/MessageBubble.cs",
+    "bytes": 5196,
+    "sha256": "BBC31BED1E3D2987E6E0011D0D60AFF3B33DC798BB0A973B565C1B3F2E5CA3C3",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Models/MessageCheckpointItem.cs",
+    "bytes": 979,
+    "sha256": "4283C1CCA53AEA2BDB4ABD6703297D81441EE6D492B01F78914ED89A2C119FD7",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Models/MessageContext.cs",
+    "bytes": 2513,
+    "sha256": "AB70722E967B49DE297392CA1DD484590E13DB12CF5C2111B44AFCDB61469E90",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Models/NewFriendBackItem.cs",
+    "bytes": 508,
+    "sha256": "A42CC7DB19E05A926E32A7519ACA350D8DA838B260F94937DDBF66970437F41E",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Models/NewFriendInfo.cs",
+    "bytes": 472,
+    "sha256": "8D7378F3412239F6E8DFFEBAE1C01C24ED0264CCA74BD420F7FD8D96DBF29872",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Models/OwerInfo.cs",
+    "bytes": 600,
+    "sha256": "32B509403B9A9175998B8DDD778457A0DCD6C8585D9B5105F87E1B8DF2DD525A",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Models/QwenChatRequestBody.cs",
+    "bytes": 1052,
+    "sha256": "D1B2069B977F124D698849A73EF2DC5F1DA84E3C40CD31C1C7B621B9B2CFF9B4",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Models/QwenChatResponseBody.cs",
+    "bytes": 2908,
+    "sha256": "2490E51E02E1CDEA38A59F4D8391FCEAD3EB9336C091696169528B1E7CBAC018",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Models/QwenReponseBody.cs",
+    "bytes": 2373,
+    "sha256": "ADFAE264FFF391D99E844B90F714AEEF23C02852608FD12878B2BC3FFEE47008",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Models/QwenRequestBody.cs",
+    "bytes": 1464,
+    "sha256": "DBE8118F4D8B6466CC06B2EFF3DFE0F21728B47A43F6F5B1A80FC1E9069C6183",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Models/SimpleMessageBubble.cs",
+    "bytes": 4031,
+    "sha256": "FE15BA94AE93EF7C1FA498FF011CBD81333E58E0E4198CA25A174F51AEABA79E",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Models/SystemMessageContext.cs",
+    "bytes": 1464,
+    "sha256": "FDE5530BAC5D21E44FCD782CD7AB257C16D892FEEE94DE022F73ED95D0A98775",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Models/TimeOnlyRange.cs",
+    "bytes": 668,
+    "sha256": "2918704D0B69B44430A45E147DB70B064E8E20C4BC4E4C13837BB39F0DFACAA6",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Models/VoicePreset.cs",
+    "bytes": 321,
+    "sha256": "A4701E0DBAA52265A9F1CF6C5A45351B9EF2674850D8747EB440C0CA956BD4D1",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Models/VoicePresetList.cs",
+    "bytes": 9303,
+    "sha256": "FA72EEDEAC284ECF619B8BD8BB5DE84811B03EA04607F21DD3F36F4AC4F2B555",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Models/WeChatAccount.cs",
+    "bytes": 1070,
+    "sha256": "97CFF8E91179AD0EE25C95AA57B29C82D6EC3962448020A6FA0153E35C276601",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Models/WeChatMessage.cs",
+    "bytes": 3976,
+    "sha256": "1B8D9F57FAFAC1BD33713445C7D7A0CEC4DC1271FDB98BB210E7FA9AD1DB491E",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Options/AddFriendsOptions.cs",
+    "bytes": 1417,
+    "sha256": "AA71E7A03882B1F9AE23E4946C5BA83AD15FB20AB6F143B3019B36F485CFC909",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Options/FriendRequestAutoAcceptOptions.cs",
+    "bytes": 2178,
+    "sha256": "91733CA2E65E111CD0F64F16BD8A26611A82886A74FEBA06CA12C191C05AC3D4",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Options/MessageMonitorOptions.cs",
+    "bytes": 7494,
+    "sha256": "CE4C7928F3124E5546A756B56C50015D69C896EB23BC9BE2C0C51E9CA3D64B9B",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Options/MomentsOptions.cs",
+    "bytes": 1047,
+    "sha256": "5E8CDD41E2A1F84D3F85BCB2376F8762CC8CAE6BED9D524CAB92401525A296CA",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Options/PullMessagesOptions.cs",
+    "bytes": 6367,
+    "sha256": "1A003694D55979AE458D8C36334D1C4FEC4575E0FD198EA49CEDA8B74BB95AFB",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Options/SystemMonitorOption.cs",
+    "bytes": 414,
+    "sha256": "D0E157016198B7D50F5B3057A0A1C25B110107E54C8AA561B9343CC23C21DB29",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Options/VoiceOptions.cs",
+    "bytes": 1496,
+    "sha256": "D327769F259846CD0FF19E08C8CB8443F0E6D4EF4D1A930B2491610A7F046B9E",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Services/KMSimulatorService.cs",
+    "bytes": 17795,
+    "sha256": "907D04DA2337CE39DBE9A44B555620E1ABBC8917AD99508A7B95AF6CCD861629",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Services/OCRService.cs",
+    "bytes": 21527,
+    "sha256": "7B16A21F34CDD9FB8B0AEB34910D7090347F957684E1B10F8162E7086CA55B87",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Services/QwenClientService.cs",
+    "bytes": 13491,
+    "sha256": "8A3410BFC22CD744E52A8830FD07B51F57EB2683BA5BD08D18E5CDFAEC3D22AF",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Services/WeAutomation.cs",
+    "bytes": 14591,
+    "sha256": "905F0F941F71F5F229C217088BA94D3BF3766E666C1CC255FCAC05AE7C771EA3",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Utils/AutoLogger.cs",
+    "bytes": 2016,
+    "sha256": "B28AB2B46AE0758B3C5185CA67AA95DC27F8FE6A01028818C6E79C2D2A422088",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Utils/AutomationElementComparer.cs",
+    "bytes": 714,
+    "sha256": "10BB8B0DD69DA8BDF3454A753816A58CC70EAA4D4E2D1F52E5D88A1C46BB3E6B",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Utils/AutomationRuntimeComparer.cs",
+    "bytes": 1921,
+    "sha256": "03AC4CEA5D80B4A869F20522371EB6EC6723D55DEE4551D303DD2FD46322E91E",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Utils/AutoWaiting.cs",
+    "bytes": 722,
+    "sha256": "2AD8D3C42FDF14D481F820A7B265F3C290969147AD6FD35AAC40372A70B4FED9",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Utils/ClipboardApi.cs",
+    "bytes": 5304,
+    "sha256": "2EFB965E5F63DCD7673A0C41B2D0B194E7D4AC3BB2B4F08AF1B848C55CDFE726",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Utils/ClipboardHelper.cs",
+    "bytes": 1015,
+    "sha256": "E885561E55AC1F7EA1CC9F3178E6831829E4298C537A8D11D0149E2B91A2F054",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Utils/CursorHelper.cs",
+    "bytes": 1089,
+    "sha256": "DDC500A54B8FEDCBE4FEEC9315741400173A4523E2A5AF674E62016D894C850A",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Utils/CyberOverlay.cs",
+    "bytes": 16909,
+    "sha256": "EB25E9897EE237098F3D38A1CA88A6C74F186BFC21C75D91C314B6957A8B306D",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Utils/DpiAwareness.cs",
+    "bytes": 1687,
+    "sha256": "568A409FB6FFD0650CB312A84F9F36D3065CF008E86DA47C9467DA77E0A33DFB",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Utils/DpiHelper.cs",
+    "bytes": 471,
+    "sha256": "570BA710FC3F9EEA1241ECBC23A7DE70EDEBF31767881056004209C29E251D1F",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Utils/DrawHightlightHelper.cs",
+    "bytes": 2134,
+    "sha256": "0B1B5016508A9F7B7E1C4B13465FA3365C307712CAACB45CFAC2BBD373A56DD8",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Utils/ElementVisibleHelper.cs",
+    "bytes": 2115,
+    "sha256": "815316C4A44ADF1CAE193F8B298035367601D704F6D226579D582F7D038230D6",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Utils/ForceOpenUITree.cs",
+    "bytes": 33337,
+    "sha256": "29ED838F75178193E560106EF8CDD22DC0CE30662E9A1B67B2344330DB5C27C2",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Utils/ImageHashCacheHelper.cs",
+    "bytes": 4411,
+    "sha256": "82340136586AEBDC2D4AEB795BA54DCCBB3AB9C16554F4EE264AA5AA8B3E3658",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Utils/LcsHelper.cs",
+    "bytes": 10500,
+    "sha256": "27D3BEDB97C2FC2169F8D7D9AA5E15D08CB432A990B74F2DA7F5D1108AC35B9D",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Utils/MessageCacheHelper.cs",
+    "bytes": 8248,
+    "sha256": "A056DEB4D80A87CCF94CBF202CCD4127D459B355D5576D75E33FC545B6A42EEA",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Utils/MessageComparer.cs",
+    "bytes": 1424,
+    "sha256": "57650D7CC3AC1F4F76FD096CF74938139DF0C6995B248DC3306607CF98961761",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Utils/MouseScrollHelper.cs",
+    "bytes": 2149,
+    "sha256": "9A944F8DD17F1BD0F426EFA010C1CBF8746D68DC9EB7E99E1517CE269A611AB3",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Utils/MultiWechatScheduler.cs",
+    "bytes": 367,
+    "sha256": "EE7DC3666719C1C7562FE64DDC8AF70C7B4F8A3C448FCCADBA56E37730A2EB32",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Utils/Probability.cs",
+    "bytes": 611,
+    "sha256": "41642A37D9620E90E456E0211F12586FC6DD323F90E35D2E0044B05230B0F2E9",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Utils/ShellNotifyHelper.cs",
+    "bytes": 2616,
+    "sha256": "2EE1903D528B541EC11D2C40B4F83DDA6116818068110D425838C38F8D72335E",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Utils/SupperMouseKey.cs",
+    "bytes": 10414,
+    "sha256": "20D16CA1497D33236CEE36344707825D844FFDD197E1A9204424850AE1E41177",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Utils/UITreeGlobal.cs",
+    "bytes": 4053,
+    "sha256": "9C5A7188A7AD94969C52C5D93554311E90E8F5E5017C7B9B3B0A0ADB3C44E824",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Utils/WeChatInvoker.cs",
+    "bytes": 11228,
+    "sha256": "A5F293C399FD076AEA4443047766F4E833691AA2714F297A807089E0178DE119",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Utils/WeChatRecordVideo.cs",
+    "bytes": 2746,
+    "sha256": "9EA69FABBE7B680FB1ECE98AF7D84584C1AC26CF0F7C67B3E9B10EDBAB545CD0",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Utils/WeChatTimeParser.cs",
+    "bytes": 6031,
+    "sha256": "F461758A23703EDDC0ECC032995E8E7FC429240249583F677EB04B2E7D672174",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Utils/Win32WindowHelper.cs",
+    "bytes": 12691,
+    "sha256": "DD98BF821A28F6F0EBD2044CA2AEEE569FECEB0D1DF18BB9986B1B5423A32D9D",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Utils/WinApi.cs",
+    "bytes": 7845,
+    "sha256": "758C6A110F5507DDF6CF48923EB585D6748A073A1F0BF460720352C07B552CD2",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Utils/WindowsInputHelper.cs",
+    "bytes": 9325,
+    "sha256": "4DF477E9FD80066AEB01B8495FF8D2D25B64F6931D5D9EE6CA3B14ED703C36CB",
+    "identical": true
+  },
+  {
+    "path": "WeChatAuto4_X/WeChatAuto/Utils/WinMouse.cs",
+    "bytes": 2370,
+    "sha256": "9503C1F448EDC4E852A05621CABEC67DC91E3933E91E2134DC2B339EC4E4EEFC",
+    "identical": true
+  }
+]

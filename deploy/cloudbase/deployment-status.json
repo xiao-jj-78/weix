@@ -1,0 +1,40 @@
+{
+  "provider": "Tencent Cloud CloudBase",
+  "environmentId": "jou-d4gq7a3cqf51e6caa",
+  "region": "ap-shanghai",
+  "clientVerificationDate": "2026-10-16",
+  "status": "cloud-console-deployed-windows-node-verified",
+  "deployed": true,
+  "websiteUrl": "https://jou-d4gq7a3cqf51e6caa-1394316826.tcloudbaseapp.com/wechat-workspace/index.html",
+  "apiBase": "https://jou-d4gq7a3cqf51e6caa.service.tcloudbase.com/wechat-workspace-api",
+  "functionName": "wechatWorkspaceBridge",
+  "functionType": "Event",
+  "postgresSchema": "wechat_workspace",
+  "usesExistingPlan": true,
+  "planPurchasedOrRenewed": false,
+  "otherApplicationsModified": false,
+  "windowsNodeOnlineAtVerification": true,
+  "windowsExecutionLocation": "this user Windows computer",
+  "windowsCloudServerCreated": false,
+  "wechatLoginVerified": false,
+  "realWechatActionsExecuted": false,
+  "credentialsIncluded": false,
+  "authentication": "distinct browser and Windows node tokens; only SHA256 hashes deployed; DPAPI on Windows",
+  "testCounts": {
+    "cloudServer": 21,
+    "windowsConnector": 21,
+    "cloudInterface": 12
+  },
+  "tests": {
+    "publicWebsite": true,
+    "cloudToWindowsSdk": true,
+    "repeatRequestReturnsSameResult": true
+  },
+  "firstVisitTencentTestDomainNotice": true,
+  "features": [
+    "embedded-cloud-browser",
+    "official-WeChat-companion-windows",
+    "CSharp-SDK",
+    "multi-WeChat-window-management"
+  ]
+}

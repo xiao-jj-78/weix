@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AssemblyName>WeChatSdkHost</AssemblyName>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <SelfContained>false</SelfContained>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../vendor/WeChatAuto.SDK/WeChatAuto4_X/WeChatAuto/WeChatAuto.csproj" />
+    <ProjectReference Include="../WeChatSdk.PluginContracts/WeChatSdk.PluginContracts.csproj" />
+  </ItemGroup>
+</Project>

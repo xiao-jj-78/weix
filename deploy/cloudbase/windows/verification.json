@@ -1,0 +1,23 @@
+{
+  "component": "Windows outbound CloudBase bridge",
+  "result": "pass",
+  "unitTests": 19,
+  "powershellParseErrors": 0,
+  "usesRealWindowsDpapiTest": true,
+  "cloudExecution": "mock HTTP cloud endpoint",
+  "localExecution": "mock HTTP workbench endpoint",
+  "realWechatActionsExecuted": false,
+  "verified": [
+    "fixed localhost route and query allowlist",
+    "no credentials forwarded to local endpoint",
+    "durable replay prevention and uncertain crash recovery",
+    "upload retries never repeat local commands",
+    "expiry checks before dispatch and after write lock",
+    "three concurrent reads and serialized writes",
+    "outbound redirect rejection",
+    "DPAPI encrypted configuration and results",
+    "bounded result size",
+    "poll-to-result worker integration",
+    "empty queue pauses three seconds before next outbound poll"
+  ]
+}

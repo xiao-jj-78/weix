@@ -1,0 +1,8 @@
+PASS initial disabled / no endpoint or model assumed
+PASS unconfigured preview/start rejected before AI or SDK access
+PASS write-only Windows-protected key / sanitized export
+PASS sanitized import preserves current user key
+PASS no automatic reply start after configuration/import
+PASS cross-site AI configuration blocked
+PASS internal graceful host shutdown
+AI_HTTP_SMOKE_PASS network=local-host-only wechat=untouched

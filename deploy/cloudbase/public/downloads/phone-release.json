@@ -1,0 +1,18 @@
+{
+  "ok": true,
+  "version": "1.4.0",
+  "versionCode": 5,
+  "signatureVerified": true,
+  "sameSignerAs12": true,
+  "notificationServiceDeclared": true,
+  "accessibilityServiceDeclared": true,
+  "overlayForegroundServiceDeclared": true,
+  "androidDeviceVerified": false,
+  "androidOverlayRuntimeVerified": false,
+  "automaticMomentsRuntimeVerified": false,
+  "friendRecognitionRuntimeVerified": false,
+  "realWechatActions": false,
+  "bytes": 30603958,
+  "sha256": "03a4d8622e6b6b1991533b303643dd2a0a27e56882ac1b1c8d400127cc8631f0",
+  "downloadUrl": "https://jou-d4gq7a3cqf51e6caa-1394316826.tcloudbaseapp.com/wechat-workspace/downloads/wechat-workspace-phone-1.4.0.apk?v=03a4d8622e6b"
+}

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="WeChatLikeMaui.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:WeChatLikeMaui"
+    Title="微信自动化工作台"
+    Shell.NavBarIsVisible="False">
+
+    <ShellContent
+        Title="工作台"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage" />
+
+    <ShellContent
+        Title="微信数据"
+        ContentTemplate="{DataTemplate local:WeChatDataPage}"
+        Route="WeChatDataPage" />
+
+</Shell>

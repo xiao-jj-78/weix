@@ -1,0 +1,24 @@
+{
+  "$schema": "https://static.cloudbase.net/cli/cloudbaserc.schema.json",
+  "version": "2.1",
+  "envId": "jou-d4gq7a3cqf51e6caa",
+  "region": "ap-shanghai",
+  "functionRoot": ".",
+  "functions": [
+    {
+      "name": "wechatWorkspaceBridge",
+      "dir": "server",
+      "runtime": "Nodejs20.19",
+      "handler": "index.main",
+      "timeout": 120,
+      "memorySize": 256,
+      "installDependency": true,
+      "ignore": ["node_modules/**", "tests/**", "*.test.js", "*.log"],
+      "envVariables": {
+        "CLOUDBASE_ENV_ID": "jou-d4gq7a3cqf51e6caa",
+        "TCB_REGION": "ap-shanghai",
+        "PUBLIC_ORIGIN": "https://jou-d4gq7a3cqf51e6caa-1394316826.tcloudbaseapp.com"
+      }
+    }
+  ]
+}

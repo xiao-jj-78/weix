@@ -1,0 +1,19 @@
+<Solution>
+  <Folder Name="/build/" />
+  <Folder Name="/build/maui/">
+    <Project Path="build/maui/WeChatLikeMaui/WeChatLikeMaui.csproj" />
+  </Folder>
+  <Folder Name="/build/sdk/">
+    <Project Path="build/sdk/WeChatSdk.PluginContracts/WeChatSdk.PluginContracts.csproj" />
+    <Project Path="build/sdk/WeChatSdk.SamplePlugin/WeChatSdk.SamplePlugin.csproj" />
+    <Project Path="build/sdk/WeChatSdk.OwnDataPlugin/WeChatSdk.OwnDataPlugin.csproj" />
+    <Project Path="build/sdk/WeChatSdkHost/WeChatSdkHost.csproj" />
+  </Folder>
+  <Folder Name="/build/sdk/vendor/" />
+  <Folder Name="/build/sdk/vendor/WeChatAuto.SDK/">
+    <Project Path="build/sdk/vendor/WeChatAuto.SDK/WeAutoCommon/WeAutoCommon.csproj" />
+  </Folder>
+  <Folder Name="/build/sdk/vendor/WeChatAuto.SDK/WeChatAuto4_X/">
+    <Project Path="build/sdk/vendor/WeChatAuto.SDK/WeChatAuto4_X/WeChatAuto/WeChatAuto.csproj" />
+  </Folder>
+</Solution>

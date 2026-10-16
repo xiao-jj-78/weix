@@ -1,0 +1,10 @@
+using System.Diagnostics;
+using System.Text.Json;
+ApplicationConfiguration.Initialize();
+using var process = Process.GetCurrentProcess();
+using var form = new Form { Text = "测试伴随窗口（非微信）", StartPosition = FormStartPosition.Manual, Location = new Point(180,180), Size = new Size(480,460) };
+form.Controls.Add(new Label { Text = "仅用于验证窗口排列与恢复\n不含微信，不提供登录功能", AutoSize = true, Location = new Point(30,60) });
+using var timer = new System.Windows.Forms.Timer { Interval = 120000 };
+timer.Tick += (_, _) => form.Close(); timer.Start();
+form.Shown += (_, _) => File.WriteAllText(args[0], JsonSerializer.Serialize(new { pid = process.Id, instanceId = process.Id + ":" + process.StartTime.ToUniversalTime().Ticks }));
+Application.Run(form);

@@ -1,0 +1,12 @@
+{
+  "provider": "Tencent Cloud",
+  "status": "prepared-awaiting-target",
+  "deployed": false,
+  "resourcesCreated": false,
+  "instanceId": null,
+  "region": null,
+  "publicIp": null,
+  "targetOs": "Windows with interactive desktop",
+  "defaultBindHost": "127.0.0.1",
+  "credentialsIncluded": false
+}

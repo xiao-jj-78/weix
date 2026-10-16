@@ -1,0 +1,10 @@
+PASS host running / actual WeChatAuto4x.SDK assembly loaded
+PASS loopback-only listener
+PASS 4 plugins / external sample DLL loaded
+PASS read-only plugin sdk-health
+PASS read-only plugin session-snapshot
+PASS unknown plugin rejected with 404
+PASS nonlocal Origin rejected with 403
+PASS non-JSON write rejected with 415
+No WeChat launch, login, contacts, chat reads, messages or likes executed.
+SDK_SMOKE_PASS

@@ -1,0 +1,21 @@
+{
+  "output": [
+    {
+      "name": "生成",
+      "text": ""
+    },
+    {
+      "name": "调试",
+      "text": {
+        "error": "(-2147352567, '发生意外。', (0, None, None, None, 0, -2147467259), None)"
+      }
+    },
+    {
+      "name": ".NET MAUI",
+      "text": ".NET MAUI Tools - 18.11.14+2f5a62bd4e\r\nSetSelectedDeviceAsync BEST Android Emulator\r\n"
+    }
+  ],
+  "debug_mode": 1,
+  "build_state": 3,
+  "last_build_info": 0
+}

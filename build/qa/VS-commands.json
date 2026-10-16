@@ -1,0 +1,28 @@
+{
+  "commands": [
+    {
+      "name": "Build.BuildSolution",
+      "available": true
+    },
+    {
+      "name": "Build.Cancel",
+      "available": false
+    },
+    {
+      "name": "Build.BuildSelection",
+      "available": true
+    },
+    {
+      "name": "Build.BuildOnlyProject",
+      "available": false
+    },
+    {
+      "name": "Debug.Start",
+      "available": true
+    },
+    {
+      "name": "Debug.StartWithoutDebugging",
+      "available": true
+    }
+  ]
+}
